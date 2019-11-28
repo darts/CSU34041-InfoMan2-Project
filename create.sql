@@ -1,51 +1,56 @@
-CREATE TABLE User(
-    UserName VARCHAR(25) not null,
-    DisplayName VARCHAR(50),
-    Email VARCHAR(254) not null, --limited by email specs
-    Description VARCHAR(500),
-    JoinDate TIMESTAMP not null,
-    PRIMARY KEY(UserName)
+-- Senán d'Art
+-- 17329580
+
+CREATE TABLE user(
+    user_name VARCHAR(25) not null,
+    display_name VARCHAR(50),
+    email VARCHAR(254) not null,
+    u_description VARCHAR(500),
+    join_date TIMESTAMP not null,
+    PRIMARY KEY(user_name)
 );
 
-CREATE TABLE Repo(
-    RepoName VARCHAR(100) not null,
-    UserName VARCHAR(25) not null,
-    UniqueID INTEGER not null,
-    StartDate TIMESTAMP not null,
-    PRIMARY KEY(UniqueID)
+CREATE TABLE repo(
+    unique_ID INTEGER not null,
+    repo_name VARCHAR(100) not null,
+    user_name VARCHAR(25) not null,
+    start_date TIMESTAMP not null,
+    public BOOLEAN not null,
+    PRIMARY KEY(unique_ID)
 );
 
-CREATE TABLE Branch(
+CREATE TABLE branch(
     ID INTEGER not null,
-    CreateDate TIMESTAMP not null,
-    BranchName VARCHAR(50) not null,
-    Repo INTEGER not null,
-    Description VARCHAR(500),
-    LatestCommit INTEGER not null,
+    create_date TIMESTAMP not null,
+    branch_name VARCHAR(50) not null,
+    repo INTEGER not null,
+    b_description VARCHAR(500),
+    latest_commit INTEGER,
     PRIMARY KEY(ID)
 );
 
-CREATE TABLE BranchCommit(
+CREATE TABLE bcommit(
     ID INTEGER not null,
-    Branch INTEGER not null,
-    CommitComment VARCHAR(500),
-    CommitTitle VARCHAR(100) not null,
-    DateTime TIMESTAMP not null,
+    branch INTEGER not null,
+    commit_comment VARCHAR(500),
+    commit_title VARCHAR(100) not null,
+    date_time TIMESTAMP not null,
     PRIMARY KEY(ID)
 );
 
-CREATE TABLE CommitChange(
-    ChangeID INTEGER not null,
-    FileName VARCHAR(100) not null,
-    Old BLOB not null,
-    New BLOB not null,
-    PRIMARY KEY(ChangeID)
+CREATE TABLE cchange(
+    change_ID INTEGER not null,
+    file_name VARCHAR(100) not null,
+    f_old BLOB not null,
+    f_new BLOB not null,
+    commit_ID INTEGER not null,
+    PRIMARY KEY(change_ID)
 );
 
-CREATE TABLE CommitComment(
-    CommitID INTEGER not null,
-    UserName VARCHAR(25) not null,
-    ChangeID INTEGER not null,
-    Text VARCHAR(1000) not null,
-    PRIMARY KEY(CommitID)
+CREATE TABLE ccomment(
+    commit_ID INTEGER not null,
+    user_name VARCHAR(25) not null,
+    change_ID INTEGER not null,
+    comment_text VARCHAR(1000) not null,
+    PRIMARY KEY(commit_ID)
 );
