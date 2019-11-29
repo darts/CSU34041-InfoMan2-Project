@@ -10,12 +10,48 @@ BEGIN
 	END IF;
 END;
 //
-CREATE TRIGGER update_latest_commit BEFORE INSERT
+
+CREATE TRIGGER update_latest_commit AFTER INSERT
 ON bcommit FOR EACH ROW
 BEGIN 
 	UPDATE branch 
 	SET latest_commit = NEW.ID
 	WHERE ID = NEW.branch;
+END;
+//
+
+CREATE TRIGGER curr_time_user BEFORE INSERT
+ON user FOR EACH ROW
+BEGIN
+	SET NEW.join_date = CURRENT_TIMESTAMP;
+END;
+//
+
+CREATE TRIGGER curr_time_repo BEFORE INSERT
+ON repo FOR EACH ROW
+BEGIN
+	SET NEW.start_date = CURRENT_TIMESTAMP;
+END;
+//
+
+CREATE TRIGGER curr_time_branch BEFORE INSERT
+ON branch FOR EACH ROW
+BEGIN
+	SET NEW.create_date = CURRENT_TIMESTAMP;
+END;
+//
+
+CREATE TRIGGER curr_time_bcommit BEFORE INSERT
+ON bcommit FOR EACH ROW
+BEGIN
+	SET NEW.date_time = CURRENT_TIMESTAMP;
+END;
+//
+
+CREATE TRIGGER curr_time_ccomment BEFORE INSERT
+ON ccomment FOR EACH ROW
+BEGIN
+	SET NEW.date_time = CURRENT_TIMESTAMP;
 END;
 //
 
