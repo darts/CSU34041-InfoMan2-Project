@@ -4,7 +4,7 @@
 CREATE TABLE user(
     user_name VARCHAR(25) not null,
     display_name VARCHAR(50),
-    email VARCHAR(254) not null,
+    email VARCHAR(254) not null unique,
     u_description VARCHAR(500),
     join_date TIMESTAMP not null,
     PRIMARY KEY(user_name)
@@ -49,7 +49,7 @@ ADD FOREIGN KEY (branch) REFERENCES branch(ID);
 CREATE TABLE cchange(
     change_ID INTEGER not null AUTO_INCREMENT,
     file_name VARCHAR(100) not null,
-    f_old BLOB not null,
+    f_old BLOB,
     f_new BLOB not null,
     commit_ID INTEGER not null,
     PRIMARY KEY(change_ID),

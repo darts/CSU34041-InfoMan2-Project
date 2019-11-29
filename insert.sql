@@ -1,29 +1,161 @@
--- insert into repo values
--- (112, 'superdank', 'dank', '2019-11-21 18:29:00', True);
--- this is a comment
--- insert into repo values
--- (122, 'superdank', 'dank', '2019-11-21 18:29:00', True);
+-- Senán d'Art
+-- 17329580
 
--- insert into branch values
--- (null, '2019-11-21 18:29:00', 'some other bullshit', 123, null, null);
-
--- insert into bcommit values
--- (null, 1, null, 'Some Tests', '2019-11-21 18:29:00');
-
--- insert into branch values
--- (null, null, 'some new bullshit', 123, null, null);
-
--- insert into bcommit values
--- (null, 1, null, 'vinny the boomer', null);
-
--- drop table repo, user,cchange,branch,bcommit;
 insert into user values
-('yourMom', null, 'wine@gmail.com', null, null),
-('yourDad', null, 'cans@gmail.com', null, null);
+('darts', 'Senan', 'darts@tcd.com', '3rd Year TCD Computer Science', null),
+('randolph', 'Random Dolphin', 'dolphinr@gmail.com', 'Some dude who writes code', null),
+('torvalds', 'Linus', 'torvalds@gmail.com', 'Just a small-time dev.', null),
+('xHackerX', 'Aanon', 'a@non.com', 'Elite Member of Anonymous', null),
+('kamiKam', 'Kamil Kamil Niamh McNamara', 'mcnamarakamkam@tcd.com', 'Google engineer', null),
+('alig', 'You Know Who', 'laddi@g.com', 'I\'m the bossman', null)
+;
+
+
 insert into repo values
-(null, '1', 'yourMom', null, True),
-(null, '2', 'yourMom', null, False),
-(null, '3', 'yourDad', null, True),
-(null, '4', 'yourDad', null, False),
-(null, '5', 'yourDad', null, True),
-(null, '6', 'yourDad', null, False);
+(null, 'CSU34041', 'darts', null, True),
+(null, 'OpenLamp', 'darts', null, True),
+(null, 'PersonalProject', 'darts', null, False),
+(null, 'Train Sim', 'randolph', null, False),
+(null, 'GraphJS', 'randolph', null, True),
+(null, 'KeyCrypt', 'randolph', null, False),
+(null, 'Linux', 'torvalds', null, True),
+(null, 'GIT', 'torvalds', null, True),
+(null, 'grep', 'torvalds', null, True),
+(null, 'l33tHax', 'xHackerX', null, False),
+(null, 'ezCodes', 'xHackerX', null, False),
+(null, 'LOIC', 'xHackerX', null, True),
+(null, 'mongo', 'kamiKam', null, True),
+(null, 'graphing-git', 'kamiKam', null, True),
+(null, 'grep', 'kamiKam', null, True),
+(null, 'hits', 'alig', null, True),
+(null, 'myNextHit', 'alig', null, False),
+(null, 'upperLower', 'alig', null, False);
+
+insert into branch values
+(null, null, 'master', (select unique_ID from repo where user_name = 'darts' and repo_name = 'CSU34041'), '3rd year TCD Information management module', null),
+(null, null, 'tmp', (select unique_ID from repo where user_name = 'darts' and repo_name = 'CSU34041'), 'Temporary branch.', null),
+(null, null, 'theLamp', (select unique_ID from repo where user_name = 'darts' and repo_name = 'OpenLamp'), 'The title says it all', null),
+(null, null, 'oldLamp', (select unique_ID from repo where user_name = 'darts' and repo_name = 'OpenLamp'), 'Built for a previous version of the switch', null),
+(null, null, 'project A', (select unique_ID from repo where user_name = 'darts' and repo_name = 'PersonalProject'), 'The first project', null),
+(null, null, 'project elrond', (select unique_ID from repo where user_name = 'darts' and repo_name = 'PersonalProject'), 'A slingshot maneouver', null),
+(null, null, 'choo choo', (select unique_ID from repo where user_name = 'randolph' and repo_name = 'Train Sim'), 'The actual application', null),
+(null, null, 'JS', (select unique_ID from repo where user_name = 'randolph' and repo_name ='GraphJS'), 'A javascript graphing library', null),
+(null, null, 'kernel', (select unique_ID from repo where user_name = 'torvalds' and repo_name = 'Linux'), 'An open source kernel', null),
+(null, null, 'deadKernel', (select unique_ID from repo where user_name = 'torvalds' and repo_name = 'Linux'), 'A previous version of the kernel', null),
+(null, null, 'GIT_SOME',  (select unique_ID from repo where user_name = 'torvalds' and repo_name = 'GIT'), 'A version control experiment', null),
+(null, null, 'great_returns', (select unique_ID from repo where user_name = 'torvalds' and repo_name = 'grep'), 'The search for life', null),
+(null, null, 'masterHax', (select unique_ID from repo where user_name = 'xHackerX' and repo_name = 'l33tHax'), 'Secret stuff', null),
+(null, null, 'some code', (select unique_ID from repo where user_name = 'xHackerX' and repo_name = 'ezCodes'), 'Testing new print function', null),
+(null, null, 'LOIC base', (select unique_ID from repo where user_name = 'xHackerX' and repo_name = 'LOIC'), null, null),
+(null, null, 'mongod',  (select unique_ID from repo where user_name = 'kamikam' and repo_name = 'mongo'), null, null),
+(null, null, 'mongoloid',  (select unique_ID from repo where user_name = 'kamikam' and repo_name = 'mongo'), null, null),
+(null, null, 'graph',  (select unique_ID from repo where user_name = 'kamikam' and repo_name = 'graphing-git'), null, null),
+(null, null, 'getget',  (select unique_ID from repo where user_name = 'kamikam' and repo_name = 'grep'), 'All my code', null),
+(null, null, 'smack',  (select unique_ID from repo where user_name = 'alig' and repo_name = 'hits'), 'smackdowns', null),
+(null, null, 'nextWhackyCode',  (select unique_ID from repo where user_name = 'alig' and repo_name = 'myNextHit'), 'Some really crazy code, gonna be a hit', null),
+(null, null, 'upperLower',  (select unique_ID from repo where user_name = 'alig' and repo_name = 'upperLower'), 'turn upper to lower case', null);
+
+insert into bcommit values
+(null, 1, 'first commit', 'My First Commit', null),
+(null, 1, 'second commit', 'My second Commit', null),
+(null, 1, 'some super awesome changes', 'Bug Fixes & features', null),
+(null, 2, '', 'init', null),
+(null, 2, 'second commit', 'Best Commit', null),
+(null, 2, 'Finally fixed all the bugs!', 'Bug Fixes!!!', null),
+(null, 3, 'started repo', 'commit numero uno', null),
+(null, 3, 'this is getting tough', 'commit numero dos', null),
+(null, 4, 'had this great idea', 'laid groundwork', null),
+(null, 4, 'more setup', 'this is rough', null),
+(null, 5, 'should have started with verion control', 'the whole project', null),
+(null, 6, 'started and finished', 'ezclap', null),
+(null, 8, '', 'setup', null),
+(null, 8, '', 'some changes', null),
+(null, 8, '', 'more fixes', null),
+(null, 8, 'Fixed replication bug, should have added descriptions to other commits', 'Final commit', null),
+(null, 9, 'built the kernel, was easy', 'the whole thing', null),
+(null, 11, 'started', 'setup', null),
+(null, 11, '', 'fix a thing', null),
+(null, 11, '', 'unbreak a thing', null),
+(null, 11, 'add stuff', 'added stuff', null),
+(null, 11, '', 'donezo', null),
+(null, 13, '', 'started', null),
+(null, 13, 'code is self-documenting', 'more features', null),
+(null, 13, 'developed new algorithm', 'check stackoverflow', null),
+(null, 13, 'fixed algorithm', 'I\'m a genius', null),
+(null, 13, '', 'fixed it properly this time', null),
+(null, 14, '', 'My First Commit', null),
+(null, 14, '', 'My second Commit', null),
+(null, 15, '', 'best code', null),
+(null, 15, '', 'even better code', null),
+(null, 15, '', 'I have acheived perfection', null),
+(null, 16, '', 'nope', null),
+(null, 16, '', 'no', null),
+(null, 16, '', 'n', null),
+(null, 17, 'this is genius', 'I am genius', null),
+(null, 17, 'really hard', 'this is hard', null),
+(null, 18, '', 'start and finish', null),
+(null, 19, '', 'best project', null),
+(null, 21, 'crazy cool', 'cool', null),
+(null, 21, 'crazy whack', 'mad', null),
+(null, 21, 'wildly wonky', 'out of this world', null),
+(null, 22, 'my mona lisa', 'this will be great', null),
+(null, 22, 'rome wasn\'t built in a day', 'almost done', null),
+(null, 22, '', 'DOOOONNNNNNNNNEEEE!!!!', null);
+
+-- MySQL treats blobs as very large VARCHARs, for demonstration purposes I am using strings
+insert into cchange values 
+(null, 'code.py', null, 'newtext', 1),
+(null, 'code.py', 'newtext', 'newertext', 2),
+(null, 'code.py', 'newertext', 'pure awesome', 3),
+(null, 'script.js', null, 'newtext', 4),
+(null, 'superScript.js', null, 'supercode', 4),
+(null, 'superScript.js', 'supercode', 'superercode', 5),
+(null, 'script.js', 'supercode', 'supermancode', 6),
+(null, 'hacks.java', null, 'code', 7),
+(null, 'hacks.java', 'code', 'newtext', 8),
+(null, 'a.py', null, 'newtext', 9),
+(null, 'code.py', 'newtext', 'print(\'athing\')', 10),
+(null, 'writey.py', null, 'codes', 11),
+(null, 'hacks.py', null, 'execute order 66', 12),
+(null, 'code.py', null, 'newtext', 13),
+(null, 'cody.py', null, 'l33t works', 14),
+(null, 'cody.py', 'l33t works', 'boeing', 15),
+(null, 'code.py', 'newtext', 'newtext', 16),
+(null, 'app.js', null, 'clg($22)', 17),
+(null, 'code.py', null, 'newtext', 18),
+(null, 'what.py', null, 'wut', 19),
+(null, 'what.py', 'wut', 'yes', 20),
+(null, 'code.py', 'newtext', 'better text', 21),
+(null, 'code.py', 'better text', 'super text', 22),
+(null, 'dave.pl', null, 'my name is dave', 23),
+(null, 'dave.pl', 'my name is dave', 'I like to rave', 24),
+(null, 'dave.pl', 'I like to rave', 'i also like to pave', 25),
+(null, 'dave.pl', 'i also like to pave', 'I love to pave', 26),
+(null, 'dave.pl', 'I love to pave', 'Thats what makes me dave', 27),
+(null, 'code.py', null, 'newtext', 28),
+(null, 'code.py', 'newtext', 'bluetext', 29),
+(null, 'hey.s', null, 'yo', 30),
+(null, 'hey.s', 'yo', 'dawg', 31),
+(null, 'hey.s', 'dawg', 'wassup', 32),
+(null, 'code.py', null, 'newtext', 33),
+(null, 'code.py', 'newtext', 'create docs', 34),
+(null, 'code.py', 'create docs', 'upgrades', 35),
+(null, 'code.js', null, 'newtext', 36),
+(null, 'l33t_skills.js', null, 'more text', 37),
+(null, 'crayCray.c', null, 'wild stuff', 38),
+(null, 'supercode.cp', null, 'Insane performance', 39),
+(null, 'code.py', null, 'newtext', 40),
+(null, 'codes.py', null, 'newtext', 41),
+(null, 'codeer.py', null, 'newtext', 42),
+(null, 'codey.py', null, 'newtext', 43),
+(null, 'codea.py', null, 'code', 44),
+(null, 'codera.py', null, 'more code', 45);
+
+insert into ccomment values
+(null, 'darts', 1, 'Super cool work, great job me!', null),
+(null, 'kamikam', 1, 'Nice', null),
+(null, 'randolph', 1, 'I don\'t liek', null),
+(null, 'randolph', 2, 'Dislike', null),
+(null, 'kamikam', 2, 'I also dislike', null),
+(null, 'alig', 5, 'whack', null),
+(null, 'alig', 5, 'super whack in fact', null);

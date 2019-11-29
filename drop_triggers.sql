@@ -1,3 +1,6 @@
+-- Senán d'Art
+-- 17329580
+
 drop trigger repo_check;
 drop trigger update_latest_commit;
 drop trigger curr_time_user;

@@ -11,6 +11,15 @@ BEGIN
 END;
 //
 
+CREATE TRIGGER branch_check BEFORE INSERT
+ON branch FOR EACH ROW
+BEGIN 
+	IF EXISTS (SELECT * FROM branch WHERE (branch_name = NEW.branch_name) AND (repo = NEW.repo))
+	THEN SIGNAL sqlstate '45001' set message_text = "Repo cannot have multiple branches with the same name!";
+	END IF;
+END;
+//
+
 CREATE TRIGGER update_latest_commit AFTER INSERT
 ON bcommit FOR EACH ROW
 BEGIN 

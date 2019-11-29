@@ -1,3 +1,6 @@
+-- Senán d'Art
+-- 17329580
+
 CREATE VIEW not_logged_in_repos(repo_name, user_name, start_date) AS 
 SELECT repo_name, user_name, start_date FROM repo WHERE (public = true);
 
