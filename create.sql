@@ -18,7 +18,7 @@ CREATE TABLE repo(
     public BOOLEAN not null,
     PRIMARY KEY(unique_ID),
     FOREIGN KEY (user_name) REFERENCES user(user_name)
-);
+); 
 
 
 
